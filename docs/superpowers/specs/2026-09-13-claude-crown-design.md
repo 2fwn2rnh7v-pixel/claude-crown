@@ -197,3 +197,17 @@ Crown invocation name sets the same mode. `compress` was taken from `~/.agents/s
 not from the plugin cache — the cache ships `scripts` as a git-symlink text stub that is dead on
 Windows. While `caveman@caveman` stays installed, the SessionStart reminder appears twice and the
 flag file is written twice; both are idempotent. Version 0.3.0.
+
+## Addendum 2026-09-13 (3) — every plugin skill vendored (owner decision)
+
+Owner instruction: "copy every plugin skill there is in the library and insert it into the repo".
+Vendored: superpowers 6.3.0 (14), ui-ux-pro-max 2.6.2 (7, its skills sit in `.claude/skills/`
+per its manifest `skills` key), claude-code-setup 1.0.0 (1), codex 1.0.6 (3 knowledge skills),
+Claude Desktop account skills from `%APPDATA%\Claude\local-agent-mode-sessions\skills-plugin`
+(14, incl. two owner-authored), cowork-plugin-management 0.2.2 (2). Total 63 skills, 17 MB.
+Rules applied: skill folders copied verbatim, LICENSE copied into the first skill of each
+source, `__pycache__` dropped, CRLF normalised to LF. **Not** vendored: superpowers' SessionStart
+hook (Crown's router already does that job), codex runtime/hooks/commands/agent (coupled to its
+own plugin root), the disabled official `skill-creator` plugin (the Desktop copy is newer and was
+taken), `github` (no skills). `~/.claude/skills/` (42 local skills, not plugins) untouched.
+Version 0.4.0.

@@ -1,8 +1,8 @@
 {
   "name": "claude-crown",
   "displayName": "Claude Crown",
-  "version": "0.3.0",
-  "description": "Personal skill library: security, frontend, backend, selling, SEO, SQL. Router skill plus SessionStart hook, superpowers-shaped.",
+  "version": "0.4.0",
+  "description": "Personal skill library: every installed plugin's skills vendored under one namespace, plus router skill and SessionStart hook, superpowers-shaped.",
   "author": {
     "name": "Marvin Willers"
   },
