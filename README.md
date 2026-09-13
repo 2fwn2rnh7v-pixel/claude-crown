@@ -21,7 +21,9 @@ Update after changes:
 2. Frontmatter: `name` (kebab-case) and `description` (third person, with trigger phrases).
 3. Optional: `references/`, `scripts/`, `assets/` next to `SKILL.md`.
 4. `claude plugin validate ./claude-crown --strict`
-5. Restart Claude Code. The skill appears as `claude-crown:<name>`.
+5. Bump `version` in `.claude-plugin/plugin.json`. Without a bump, `claude plugin update` reports "already latest" and the cached copy stays stale.
+6. From `Desktop`: `claude plugin marketplace update claude-crown` then `claude plugin update claude-crown@claude-crown`.
+7. Restart Claude Code. The skill appears as `claude-crown:<folder-name>`.
 
 The router (`skills/using-claude-crown/SKILL.md`) needs no edit when skills are added.
 
@@ -48,7 +50,7 @@ The router (`skills/using-claude-crown/SKILL.md`) needs no edit when skills are 
 | Frontend (taste-skill family) | `design-taste-frontend-v1` | The original v1 taste-skill, preserved for projects depending on its exact behavior. The current default is `d |
 | Router | `using-claude-crown` | Use when starting any conversation - establishes how to find and use Claude Crown skills, requiring skill invo |
 
-Invocation name is the frontmatter `name`, not the folder: `claude-crown:design-taste-frontend` lives in `skills/taste-skill/`.
+Invocation name is the **folder** name: `skills/taste-skill/` is invoked as `claude-crown:taste-skill`, whatever its frontmatter `name` says (measured 2026-09-13, Claude Code 2.1.270).
 Add a row per skill you drop in. Source and license per vendored skill: see Credits.
 
 ## Layout
