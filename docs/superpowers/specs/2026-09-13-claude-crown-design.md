@@ -43,7 +43,7 @@ claude-crown/
   .gitignore
 ```
 
-Location: `C:\Users\wille\Desktop\claude-crown\`, its own git repository.
+Location: `C:\Users\wille\Desktop\claude-crown\`, its own git repository, pushed to a **private** GitHub repository `claude-crown` under the owner account (added 2026-09-13 on owner request).
 
 ## 4. Manifest
 
