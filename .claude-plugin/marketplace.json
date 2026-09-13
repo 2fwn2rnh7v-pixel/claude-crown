@@ -1,0 +1,14 @@
+{
+  "name": "claude-crown",
+  "description": "Local marketplace for the Claude Crown personal skill library",
+  "owner": {
+    "name": "Marvin Willers"
+  },
+  "plugins": [
+    {
+      "name": "claude-crown",
+      "source": "./",
+      "description": "Personal skill library with router and SessionStart hook"
+    }
+  ]
+}
