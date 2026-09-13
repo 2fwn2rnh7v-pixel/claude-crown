@@ -1,0 +1,17 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "App name",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://domain.tld/",
+  "description": "What the app does, one sentence.",
+  "offers": {
+    "@type": "Offer",
+    "price": "49.00",
+    "priceCurrency": "EUR"
+  },
+  "publisher": {
+    "@id": "https://domain.tld/#organization"
+  }
+}

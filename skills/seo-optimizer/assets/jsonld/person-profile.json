@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "dateCreated": "2024-01-15T09:00:00+01:00",
+  "dateModified": "2026-06-01T10:00:00+02:00",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://domain.tld/team/first-last#person",
+    "name": "First Last",
+    "jobTitle": "Role",
+    "description": "Two sentences: what this person has done, verifiable.",
+    "image": "https://domain.tld/img/team/first-last.jpg",
+    "url": "https://domain.tld/team/first-last",
+    "worksFor": {
+      "@id": "https://domain.tld/#organization"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/example"
+    ],
+    "knowsAbout": [
+      "Webdesign",
+      "SEO"
+    ]
+  }
+}

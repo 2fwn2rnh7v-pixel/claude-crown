@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://domain.tld/blog/slug#article",
+  "mainEntityOfPage": "https://domain.tld/blog/slug",
+  "headline": "Title, max 110 characters",
+  "description": "One or two sentences matching the meta description.",
+  "image": [
+    "https://domain.tld/img/slug-16x9.jpg",
+    "https://domain.tld/img/slug-4x3.jpg",
+    "https://domain.tld/img/slug-1x1.jpg"
+  ],
+  "datePublished": "2026-03-01T09:00:00+01:00",
+  "dateModified": "2026-06-12T14:30:00+02:00",
+  "author": {
+    "@type": "Person",
+    "name": "First Last",
+    "url": "https://domain.tld/team/first-last",
+    "jobTitle": "Role"
+  },
+  "publisher": {
+    "@id": "https://domain.tld/#organization"
+  },
+  "inLanguage": "de"
+}

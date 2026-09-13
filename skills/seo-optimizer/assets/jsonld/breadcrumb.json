@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Start",
+      "item": "https://domain.tld/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Leistungen",
+      "item": "https://domain.tld/leistungen"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Bodenanalyse"
+    }
+  ]
+}

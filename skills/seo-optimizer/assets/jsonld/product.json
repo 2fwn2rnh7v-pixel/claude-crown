@@ -1,0 +1,61 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": "https://domain.tld/produkte/slug#product",
+  "name": "Product name",
+  "image": [
+    "https://domain.tld/img/slug-1x1.jpg",
+    "https://domain.tld/img/slug-4x3.jpg",
+    "https://domain.tld/img/slug-16x9.jpg"
+  ],
+  "description": "Product description as visible on the page.",
+  "sku": "SKU-001",
+  "brand": {
+    "@type": "Brand",
+    "name": "Brand"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://domain.tld/produkte/slug",
+    "priceCurrency": "EUR",
+    "price": "49.00",
+    "priceValidUntil": "2026-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "4.90",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 0,
+          "maxValue": 1,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "DE",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    }
+  }
+}

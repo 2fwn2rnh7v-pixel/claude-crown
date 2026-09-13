@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Video title",
+  "description": "What the video shows.",
+  "thumbnailUrl": [
+    "https://domain.tld/img/video-thumb-16x9.jpg"
+  ],
+  "uploadDate": "2026-05-10T08:00:00+02:00",
+  "duration": "PT2M30S",
+  "contentUrl": "https://domain.tld/video/demo.mp4",
+  "embedUrl": "https://domain.tld/video/demo-embed",
+  "publisher": {
+    "@id": "https://domain.tld/#organization"
+  }
+}

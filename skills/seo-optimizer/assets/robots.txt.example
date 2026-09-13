@@ -1,0 +1,27 @@
+# Production robots.txt template. Replace domain.tld. Keep CSS/JS crawlable.
+# Disallow controls crawling, not indexing. For noindex the page must be crawlable.
+
+User-agent: *
+Disallow: /api/
+Disallow: /app/
+Disallow: /admin/
+Disallow: /*?utm_
+Allow: /
+
+# --- AI training crawlers: deliberate decision, no effect on Google Search ranking ---
+# Block training, keep answer-search crawlers allowed so the site stays citable.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: Bytespider
+Disallow: /
+
+User-agent: OAI-SearchBot
+User-agent: PerplexityBot
+User-agent: Claude-SearchBot
+Allow: /
+
+Sitemap: https://domain.tld/sitemap.xml

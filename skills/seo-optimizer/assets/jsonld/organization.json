@@ -1,0 +1,45 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://domain.tld/#organization",
+  "name": "Company name",
+  "alternateName": "Short name",
+  "url": "https://domain.tld/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://domain.tld/assets/brand/logo.png",
+    "width": 769,
+    "height": 585
+  },
+  "image": "https://domain.tld/og/default.png",
+  "description": "One sentence, what the company does, for whom.",
+  "email": "hallo@domain.tld",
+  "telephone": "+49 5121 000000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Musterstraße 1",
+    "postalCode": "31134",
+    "addressLocality": "Hildesheim",
+    "addressCountry": "DE"
+  },
+  "vatID": "DE123456789",
+  "founder": {
+    "@type": "Person",
+    "name": "First Last",
+    "url": "https://domain.tld/team/first-last"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/example",
+    "https://www.instagram.com/example",
+    "https://g.page/example"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "hallo@domain.tld",
+    "availableLanguage": [
+      "de",
+      "en"
+    ]
+  }
+}

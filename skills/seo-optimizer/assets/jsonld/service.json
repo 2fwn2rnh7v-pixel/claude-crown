@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://domain.tld/leistungen/webdesign#service",
+  "name": "Webdesign",
+  "serviceType": "Webdesign",
+  "description": "What the service delivers, in one sentence.",
+  "provider": {
+    "@id": "https://domain.tld/#organization"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Germany"
+  },
+  "url": "https://domain.tld/leistungen/webdesign",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "price": "2900",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "2900",
+      "priceCurrency": "EUR",
+      "valueAddedTaxIncluded": false
+    },
+    "availability": "https://schema.org/InStock",
+    "url": "https://domain.tld/leistungen/webdesign#preise"
+  }
+}

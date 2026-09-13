@@ -1,0 +1,97 @@
+{
+  "skill_name": "seo-optimizer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Unsere Marketing-Seiten werden von Google kaum gefunden. Schau dir den Build in evals/fixtures/bad an, die Seite läuft unter https://example.com, und sag mir, woran es liegt.",
+      "expected_output": "Report in the template format with evidenced findings (file + line or script code), prioritised Blockers / High / Medium, concrete patches, and a verification section with before/after script exit codes.",
+      "files": ["evals/fixtures/bad/"],
+      "expectations": [
+        "Runs scripts/seo_check.py with --base-url instead of only reading templates",
+        "Names indexing blockers (canonical to localhost/staging, two canonicals, missing title/h1/viewport) before content topics",
+        "Flags the empty client-rendered index.html as the first finding",
+        "Uses exactly the report structure from assets/report-template.md",
+        "Delivers at least one concrete code patch with a file path",
+        "Mentions the FAQPage markup as retired under Not relevant, not as a fix"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Wir wollen in ChatGPT und den Google AI Overviews auftauchen. Brauchen wir eine llms.txt und mehr Schema-Markup?",
+      "expected_output": "Sober correction: llms.txt is not a Google signal, schema is not a prerequisite for AI features; instead indexability, snippet eligibility, non-commodity content, Bing index for ChatGPT, and the Search Console Generative AI report as the measurement.",
+      "files": [],
+      "expectations": [
+        "Contradicts the premise instead of confirming it",
+        "States that Google does not read llms.txt and cites the Google AI optimisation guide",
+        "Explains that structured data is not required for AI features",
+        "Mentions that ChatGPT search retrieves via Bing and recommends Bing Webmaster Tools / IndexNow",
+        "Names the Search Console Generative AI performance report and that it shows impressions only",
+        "Does not promise a position or share of voice in AI answers"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Baue eine neue Landingpage für unser Bodenanalyse-Angebot unter /leistungen/bodenanalyse.",
+      "expected_output": "Skill triggers proactively: page is delivered with title, description, one h1, self-referencing canonical, Open Graph, BreadcrumbList JSON-LD and image attributes, then verified with seo_check.py exit 0.",
+      "files": [],
+      "expectations": [
+        "Skill activates without an explicit SEO mention",
+        "Uses assets/page-launch-checklist.md",
+        "Generated page has exactly one h1",
+        "Metadata set: title, description, canonical, og:image",
+        "seo_check.py runs after creation with exit code 0",
+        "No invented ratings or numbers in the JSON-LD"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Seit drei Wochen sind unsere Google-Klicks um 40 % eingebrochen. Wo fange ich an?",
+      "expected_output": "Ordered diagnosis from references/measurement.md: verify the drop in Search Console vs analytics, date and shape, impressions vs CTR, segment vs site-wide, manual actions, deployment history (noindex, robots, canonical, CDN), Google update calendar, competition, seasonality. Asks for Search Console access or data rather than guessing a cause.",
+      "files": [],
+      "expectations": [
+        "Follows the nine-step traffic-drop order and does not jump to content advice",
+        "Distinguishes impressions drop from CTR drop",
+        "Checks for manual actions and deployment changes before algorithm updates",
+        "References the 2025–2026 core/spam update dates as a check, not as the assumed cause",
+        "Offers to run crawl_check.py and seo_check.py against the live origin"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Unser Friseursalon in Hildesheim soll bei 'Friseur Hildesheim' besser gefunden werden. Sollen wir für jeden Stadtteil eine Seite machen?",
+      "expected_output": "Local SEO guidance: Google Business Profile as the main lever (category, name as on signage, hours, photos, reviews without incentives), NAP consistency incl. Impressum, HairSalon JSON-LD, one location page; rejects per-district pages as doorway abuse.",
+      "files": [],
+      "expectations": [
+        "Rejects one page per district and names doorway abuse as the reason",
+        "Puts the Google Business Profile before on-site changes",
+        "States the review policy: asking allowed, incentives and gating forbidden",
+        "Recommends HairSalon (LocalBusiness subtype) JSON-LD from assets/jsonld/localbusiness.json with matching NAP",
+        "Mentions Impressum and NAP consistency as trust signals"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Wir hosten auf Cloudflare Workers mit SPA-Fallback. Google zeigt in der Search Console 'Soft 404' für hunderte URLs. Warum?",
+      "expected_output": "Explains that not_found_handling single-page-application serves index.html with 200 for unknown paths, that this is a soft 404, and gives the fix (404-page mode or Worker route returning status 404), plus verification via crawl_check.py soft-404 probe.",
+      "files": [],
+      "expectations": [
+        "Identifies the SPA fallback 200 as the root cause",
+        "Gives a concrete configuration or Worker code fix",
+        "Recommends crawl_check.py to verify the probe returns 404",
+        "Mentions checking Cloudflare bot settings since Googlebot may also be affected by 2025–2026 defaults"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Prüfe bitte evals/fixtures/good für https://agrarmonitor.example und sag mir, ob wir live gehen können.",
+      "expected_output": "Runs seo_check.py with --base-url, reports 0 errors / 0 warnings, states what the script cannot judge (content quality, live status codes, CWV) and lists the remaining post-deploy checks rather than declaring everything perfect.",
+      "files": ["evals/fixtures/good/"],
+      "expectations": [
+        "Runs the script and reports exit code 0",
+        "Does not overclaim: names that content quality and live crawl checks are separate steps",
+        "Lists post-deploy checks: crawl_check.py on the origin, Search Console URL Inspection, Bing IndexNow",
+        "Does not invent findings to fill the report"
+      ]
+    }
+  ]
+}
