@@ -210,4 +210,5 @@ source, `__pycache__` dropped, CRLF normalised to LF. **Not** vendored: superpow
 hook (Crown's router already does that job), codex runtime/hooks/commands/agent (coupled to its
 own plugin root), the disabled official `skill-creator` plugin (the Desktop copy is newer and was
 taken), `github` (no skills). `~/.claude/skills/` (42 local skills, not plugins) untouched.
-Version 0.4.0.
+Measured in a fresh session: 62 `claude-crown:*` skills visible to the model; `setup-cowork` is the
+63rd and carries `disable-model-invocation: true`, so only the user can invoke it. Version 0.4.0.
