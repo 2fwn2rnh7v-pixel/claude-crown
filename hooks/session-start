@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# SessionStart hook for the claude-crown plugin.
+# Injects the using-claude-crown router skill as additional context.
+# Adapted from obra/superpowers hooks/session-start (MIT); Claude Code branch only.
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PLUGIN_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+ROUTER="${PLUGIN_ROOT}/skills/using-claude-crown/SKILL.md"
+
+if [ -r "$ROUTER" ]; then
+  router_content="$(cat "$ROUTER")"
+else
+  router_content="Error: router skill not readable at ${ROUTER}. Invoke claude-crown:using-claude-crown via the Skill tool."
+fi
+
+escape_for_json() {
+    local s="$1"
+    s="${s//\/\\}"
+    s="${s//\"/\\\"}"
+    s="${s//$'\n'/\n}"
+    s="${s//$'\r'/\r}"
+    s="${s//$'\t'/\t}"
+    printf '%s' "$s"
+}
+
+router_escaped="$(escape_for_json "$router_content")"
+session_context="<EXTREMELY_IMPORTANT>\nYou have Claude Crown.\n\n**Below is the full content of your 'claude-crown:using-claude-crown' skill - your introduction to using the Claude Crown skill library. For all other skills, use the 'Skill' tool:**\n\n${router_escaped}\n</EXTREMELY_IMPORTANT>"
+
+# printf instead of heredoc: bash 5.3+ heredoc hang, see obra/superpowers#571
+printf '{\n  "hookSpecificOutput": {\n    "hookEventName": "SessionStart",\n    "additionalContext": "%s"\n  }\n}\n' "$session_context"
+
+exit 0
