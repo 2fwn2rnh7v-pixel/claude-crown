@@ -1,0 +1,8 @@
+# LF everywhere. The hook script and the polyglot .cmd wrapper are parsed by bash, CRLF breaks them.
+* text=auto eol=lf
+*.sh text eol=lf
+*.cmd text eol=lf
+hooks/session-start text eol=lf
+*.png binary
+*.jpg binary
+*.gif binary
