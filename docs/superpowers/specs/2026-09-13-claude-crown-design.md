@@ -176,3 +176,13 @@ Before handing back, all of these are run and their output shown:
 - One router row in `Company/Context/Context.md`: "Where is the skill library plugin, how do I
   add a skill?" → that note.
 - `CLAUDE.md` unchanged.
+
+## Addendum 2026-09-13 — vendored skills (owner decision)
+
+Section 2 "no domain skills" is superseded. On owner request the plugin now vendors:
+`scroll-world` (0.3.0), the `taste-skill` family (1.0.0, 13 skills), `impeccable` (4.0.2,
+including its four agents and PostToolUse/Stop hooks merged into `hooks/hooks.json`),
+`frontend-design` (anthropics), `seo-optimizer` (owner-authored, snapshot). Non-goal "no
+agents" is lifted for impeccable only; `agents/` holds nothing else. Originals remain
+installed as separate plugins until the owner uninstalls them; while both exist, impeccable's
+hooks fire twice and every vendored skill is listed twice.
