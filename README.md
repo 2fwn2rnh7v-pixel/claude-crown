@@ -48,6 +48,10 @@ The router (`skills/using-claude-crown/SKILL.md`) needs no edit when skills are 
 | Frontend (taste-skill family) | `stitch-design-taste` | Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, |
 | Frontend | `design-taste-frontend` | Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the r |
 | Frontend (taste-skill family) | `design-taste-frontend-v1` | The original v1 taste-skill, preserved for projects depending on its exact behavior. The current default is `d |
+| Caveman | `caveman` | Ultra-compressed communication mode. Cuts token usage ~75% by speaking like caveman while keeping full technic |
+| Caveman | `caveman-commit` | Ultra-compressed commit message generator. Cuts noise from commit messages while preserving intent and reasoni |
+| Caveman | `caveman-review` | Ultra-compressed code review comments. Cuts noise from PR feedback while preserving the actionable signal. Eac |
+| Caveman | `compress` | Compress natural language memory files (CLAUDE.md, todos, preferences) into caveman format to save input token |
 | Router | `using-claude-crown` | Use when starting any conversation - establishes how to find and use Claude Crown skills, requiring skill invo |
 
 Invocation name is the **folder** name: `skills/taste-skill/` is invoked as `claude-crown:taste-skill`, whatever its frontmatter `name` says (measured 2026-09-13, Claude Code 2.1.270).
@@ -59,7 +63,7 @@ Add a row per skill you drop in. Source and license per vendored skill: see Cred
     .claude-plugin/marketplace.json local marketplace, source "./"
     skills/                         one folder per skill
     agents/                         impeccable's four subagents
-    hooks/                          SessionStart (Crown router) + PostToolUse/Stop (impeccable)
+    hooks/                          SessionStart (Crown router, caveman) + UserPromptSubmit (caveman tracker) + PostToolUse/Stop (impeccable)
     docs/superpowers/               spec and plan
 
 ## Test
@@ -76,5 +80,6 @@ Add a row per skill you drop in. Source and license per vendored skill: see Cred
 | `impeccable` + `agents/` + PostToolUse/Stop hooks | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 4.0.2 | see upstream, no LICENSE file shipped |
 | `frontend-design` | anthropics/skills | as installed 2026-07 | `skills/frontend-design/LICENSE.txt` |
 | `seo-optimizer` | owner-authored | 2026-09-13 snapshot | owner |
+| `caveman`, `caveman-commit`, `caveman-review`, `compress` + SessionStart/UserPromptSubmit hooks | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | commit `92f892f` (installed 2026-04-09) | MIT, `skills/caveman/LICENSE` |
 
 Private use only. Check upstream licenses before any redistribution.

@@ -186,3 +186,14 @@ including its four agents and PostToolUse/Stop hooks merged into `hooks/hooks.js
 agents" is lifted for impeccable only; `agents/` holds nothing else. Originals remain
 installed as separate plugins until the owner uninstalls them; while both exist, impeccable's
 hooks fire twice and every vendored skill is listed twice.
+
+## Addendum 2026-09-13 (2) — caveman vendored (owner decision)
+
+On owner request the plugin now also vendors `caveman`, `caveman-commit`, `caveman-review` and
+`compress` from JuliusBrussee/caveman (commit `92f892f`, MIT), plus its two hooks: SessionStart
+`caveman-activate.js` (flag file + rule reminder) and UserPromptSubmit `caveman-mode-tracker.js`.
+The tracker got one line: `/claude-crown:caveman <arg>` is normalised to `/caveman <arg>`, so the
+Crown invocation name sets the same mode. `compress` was taken from `~/.agents/skills/compress`,
+not from the plugin cache — the cache ships `scripts` as a git-symlink text stub that is dead on
+Windows. While `caveman@caveman` stays installed, the SessionStart reminder appears twice and the
+flag file is written twice; both are idempotent. Version 0.3.0.
