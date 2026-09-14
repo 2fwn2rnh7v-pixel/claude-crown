@@ -229,3 +229,13 @@ translated to English, verified against vendor docs, extended with `scripts/api_
 `references/framework-recipes.md` and evals. Same folder installed to `~/.claude/skills/`,
 `Wythropus/.claude/skills/` and here. Record: `Wythropus/Company/Context/Uebergabe-Skill-API-Guard-2026-09-14.md`.
 Version 0.6.0.
+
+## Addendum 2026-09-14 (6) — owner trio complete: `security-review`, `prompt-verstaendnis`
+
+Owner instruction: "Create three skills with the exact same names. Only English." The three are
+the owner-authored skills: `api-guard` (0.6.0) plus the two claude.ai account skills with
+`creatorType: user`. Both exports contained only `SKILL.md`; the referenced
+`references/security-checklist.md`, `prompt-patterns.md` and `agent-setup.md` were written new
+in English from the SKILL.md contracts (OWASP Top 10:2025 mapping verified 2026-09-14). German
+trigger words and German prompt examples stay as data. Installed in Crown only — `security-review`
+would shadow the built-in `security-review` skill if placed in `~/.claude/skills/`. Version 0.7.0.

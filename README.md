@@ -1,7 +1,7 @@
 # Claude Crown
 
 Personal Claude Code skill library. One plugin, one namespace: `claude-crown:<skill>`.
-Ships a router skill and a SessionStart hook. Holds four domain skills: `scroll-world`, `taste-skill`, `seo-optimizer`, `api-guard`.
+Ships a router skill and a SessionStart hook. Holds six domain skills: `scroll-world`, `taste-skill`, `seo-optimizer` and the owner trio `api-guard`, `security-review`, `prompt-verstaendnis`.
 
 ## Install (local marketplace)
 
@@ -33,6 +33,8 @@ The router (`skills/using-claude-crown/SKILL.md`) needs no edit when skills are 
 |---|---|---|
 | Frontend | `scroll-world` | Scroll-scrubbed "fly through the world" landing page with Higgsfield scenes and a portable scrub engine. |
 | Frontend | `taste-skill` | Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the r |
+| Backend | `security-review` | Performs systematic security reviews of code, specialised in TypeScript web applications. 10 categories |
+| Process | `prompt-verstaendnis` | Interprets and understands the prompts of a German-speaking developer working on his own app (Agrarmonito |
 | Backend | `api-guard` | Audits and hardens API usage in TypeScript web apps: rate limiting and quotas, API keys and paid calls in the |
 | SEO | `seo-optimizer` | Audits, fixes and future-proofs website SEO against Google Search Essentials and 2026 AI search, script-backed. |
 | Router | `using-claude-crown` | Use when starting any conversation - establishes how to find and use Claude Crown skills, requiring skill invo |
@@ -61,5 +63,6 @@ Add a row per skill you drop in. Source and license per vendored skill: see Cred
 | `taste-skill` | taste-skill plugin (Leonxlnx) | 1.0.0 | MIT, `skills/taste-skill/LICENSE` |
 | `seo-optimizer` | owner-authored | 2026-09-13 snapshot | owner |
 | `api-guard` | owner-authored, translated and extended 2026-09-14 (script, framework recipes, evals) | 2026-09-14 snapshot | owner |
+| `security-review`, `prompt-verstaendnis` | owner-authored claude.ai account skills, translated to English 2026-09-14; their `references/` were missing from the export and written new | 2026-09-14 | owner |
 
 Private use only. Check upstream licenses before any redistribution.
