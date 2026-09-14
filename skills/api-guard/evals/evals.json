@@ -1,0 +1,46 @@
+{
+  "skill_name": "api-guard",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Prüf mal meine API-Nutzung. Der Code liegt in evals/fixtures/bad, das ist eine Next.js App, die einen bezahlten Text-Dienst anbindet. Warum ist die Rechnung so hoch und ist das sicher?",
+      "expected_output": "Mode A audit: runs scripts/api_scan.py first, then findings in the Finding format across all four levels with severity, file:line, abuse scenario with a rough number, and before/after TypeScript; closes with the summary block, top-3 priorities and an estimated saving.",
+      "files": ["evals/fixtures/bad/"],
+      "expectations": [
+        "Runs scripts/api_scan.py on the fixture before judging, and names the post-build bundle grep as the remaining proof",
+        "CRITICAL: NEXT_PUBLIC_OPENAI_API_KEY plus a direct fetch to api.openai.com inside a \"use client\" component; correction moves the call to a route and says to rotate the key",
+        "CRITICAL/HIGH: POST /api/generate has no auth and no rate limit before a paid upstream call; correction shows the order auth -> validation -> limit -> call",
+        "HIGH: model and max_tokens are taken from the request body; correction replaces them with a server-side tier allowlist",
+        "MEDIUM: fetch without AbortSignal.timeout, retryForever without backoff or bound, useEffect without dependency array, setInterval polling every second",
+        "LOW: await inside the for loop over prompts (N+1) and onChange without debounce",
+        "Summary block with counts per severity, top 3, and a quantified saving estimate",
+        "Ends with the self-reflection checklist answered"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Schreib mir eine Server Action analyseText(input: string), die den Text an unseren Anthropic-Client schickt und die Antwort zurückgibt. Wir nutzen Next.js 16 und Supabase.",
+      "expected_output": "Mode B: delivers the action with the four-step order built in (requireUser, Zod size limit, checkLimit with a daily quota, timeout on the SDK call, no client-controlled model or max_tokens), then a short '--- API notes ---' block only for MEDIUM+ items, without interrupting the flow.",
+      "files": [],
+      "expectations": [
+        "Auth check is the first statement, validation with a max length follows, then the limit, then the paid call",
+        "Uses a multi-instance-safe limiter (Upstash or Postgres upsert), not an in-memory Map, and mentions the daily quota",
+        "Model and max_tokens are fixed server-side; the client cannot pass them",
+        "Notes the Supabase key rule (publishable in the client with RLS, secret server-only) only if a Supabase client is created",
+        "Compact API notes block at the end, no full audit"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Das Autocomplete in der Feldsuche fühlt sich langsam an und wir zahlen viel für die Geocoding-API. Was kann ich tun, ohne dass sich die Ergebnisse ändern?",
+      "expected_output": "Level 4 walk in order: dedupe in-flight requests, debounce 300 ms plus min 3 characters plus AbortController, persistent cache keyed by input hash with a long TTL for geocoding, batching if lists are involved; each item with before/after code and a quantified effect like the example in efficiency-and-cost.md; explicitly states that the output stays identical.",
+      "files": [],
+      "expectations": [
+        "Follows the stage order from Level 4 and reads references/efficiency-and-cost.md",
+        "Recommends a persistent cache for geocoding (days to unbounded TTL), not only an in-memory map",
+        "Includes the debounce plus min-length plus abort pattern with code",
+        "Closes with a before/after number (e.g. ~90% fewer calls) and the statement that results are unchanged"
+      ]
+    }
+  ]
+}

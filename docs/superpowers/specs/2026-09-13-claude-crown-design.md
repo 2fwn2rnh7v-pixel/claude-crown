@@ -221,3 +221,11 @@ PostToolUse/Stop hooks plus the caveman SessionStart/UserPromptSubmit hooks — 
 `caveman@caveman` and the other plugins still provide those. `using-claude-crown` stays: it is the
 router the SessionStart hook reads, not library content. Four folders under `skills/`, 1 MB.
 Version 0.5.0.
+
+## Addendum 2026-09-14 (5) — `api-guard` added (owner skill #2)
+
+Owner-authored skill delivered as `~/Downloads/files.zip` (German SKILL.md + 4 references),
+translated to English, verified against vendor docs, extended with `scripts/api_scan.py`,
+`references/framework-recipes.md` and evals. Same folder installed to `~/.claude/skills/`,
+`Wythropus/.claude/skills/` and here. Record: `Wythropus/Company/Context/Uebergabe-Skill-API-Guard-2026-09-14.md`.
+Version 0.6.0.
