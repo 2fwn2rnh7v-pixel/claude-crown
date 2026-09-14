@@ -212,3 +212,12 @@ own plugin root), the disabled official `skill-creator` plugin (the Desktop copy
 taken), `github` (no skills). `~/.claude/skills/` (42 local skills, not plugins) untouched.
 Measured in a fresh session: 62 `claude-crown:*` skills visible to the model; `setup-cowork` is the
 63rd and carries `disable-model-invocation: true`, so only the user can invoke it. Version 0.4.0.
+
+## Addendum 2026-09-14 (4) — cut back to three skills (owner decision)
+
+Owner instruction: "Delete all skills besides seo-optimizer, taste-skill, scroll-world". Addenda (1)–(3)
+are history: 59 skill folders removed, with them `agents/` (impeccable's four) and the impeccable
+PostToolUse/Stop hooks plus the caveman SessionStart/UserPromptSubmit hooks — the originals
+`caveman@caveman` and the other plugins still provide those. `using-claude-crown` stays: it is the
+router the SessionStart hook reads, not library content. Four folders under `skills/`, 1 MB.
+Version 0.5.0.

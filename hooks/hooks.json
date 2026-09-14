@@ -11,54 +11,6 @@
             "async": false
           }
         ]
-      },
-      {
-        "matcher": "startup|clear|compact",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/caveman-activate.js\"",
-            "timeout": 5,
-            "statusMessage": "Loading caveman mode"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/caveman-mode-tracker.js\"",
-            "timeout": 5,
-            "statusMessage": "Tracking caveman mode"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Edit|Write|MultiEdit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/skills/impeccable/scripts/hook.mjs\"",
-            "timeout": 5,
-            "statusMessage": "Checking UI changes"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/skills/impeccable/scripts/hook.mjs\"",
-            "timeout": 30,
-            "statusMessage": "Design deep pass"
-          }
-        ]
       }
     ]
   }
