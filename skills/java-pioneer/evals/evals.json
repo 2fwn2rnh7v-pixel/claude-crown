@@ -1,0 +1,23 @@
+{
+  "skill_name": "java-pioneer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a Spring Boot 4 backend and a React app built with Vite. Build me a secure login with username and password so the React app can log in, stay logged in, and call /api/v1/orders. Show both the Java and the TypeScript side.",
+      "expected_output": "Session-cookie (BFF-style) setup with csrf.spa(), JSON login endpoint that saves the SecurityContext and changes the session ID, /api/auth/me endpoint, 401 entry point instead of redirects, delegating password encoder, Vite proxy for same-origin, TypeScript client that sends X-XSRF-TOKEN, no tokens in localStorage, and tests for 401/403/CSRF.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "My endpoint GET /api/customers/{id}/orders takes 4 seconds with only 200 orders. Here is my controller: it calls customerRepository.findById(id).get().getOrders() and returns the list of Order entities directly. Fix it.",
+      "expected_output": "Identifies N+1 / lazy loading, entity leakage, missing pagination, unsafe Optional.get(), and missing ownership check; returns paginated record DTOs via a projection or entity graph; explains how to verify with SQL statistics; suggests an index; adds a test.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Rate this code honestly and tell me what to fix: @RestController public class UserController { @Autowired UserRepository repo; @GetMapping(\"/users\") public List<User> all(@RequestParam String sort) { return repo.findAll(Sort.by(sort)); } @PostMapping(\"/users\") public User create(@RequestBody User u) { return repo.save(u); } }",
+      "expected_output": "Uses the review checklist format with a score capped at 4 because of blockers: entity exposure (password hash leak), mass assignment, no validation, unwhitelisted sort, no pagination, no authorization, field injection. Provides a corrected version with DTOs, validation, whitelist sort, pagination, and constructor injection.",
+      "files": []
+    }
+  ]
+}

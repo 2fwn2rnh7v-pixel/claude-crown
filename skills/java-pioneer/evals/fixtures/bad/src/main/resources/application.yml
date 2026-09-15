@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    password: hunter2
+  jpa:
+    hibernate:
+      ddl-auto: update
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

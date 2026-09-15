@@ -1,8 +1,8 @@
 {
   "name": "claude-crown",
   "displayName": "Claude Crown",
-  "version": "0.8.0",
-  "description": "Personal skill library: scroll-world, taste-skill, seo-optimizer, api-guard, security-review, prompt-verstaendnis, sql-king, sql-security, rls-security. Router skill plus SessionStart hook.",
+  "version": "0.9.0",
+  "description": "Personal skill library: scroll-world, taste-skill, seo-optimizer, api-guard, security-review, prompt-verstaendnis, sql-king, sql-security, rls-security, java-pioneer. Router skill plus SessionStart hook.",
   "author": {
     "name": "Marvin Willers"
   },
@@ -12,6 +12,7 @@
   "keywords": [
     "api",
     "frontend",
+    "java",
     "library",
     "postgres",
     "rate-limiting",
@@ -20,6 +21,7 @@
     "security",
     "seo",
     "skills",
+    "spring-boot",
     "sql",
     "supabase"
   ]

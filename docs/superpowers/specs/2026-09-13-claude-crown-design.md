@@ -248,3 +248,10 @@ details added. Extended `sql-king` with `scripts/sql_scan.py` (stdlib lint of mi
 code, tuned on Phoenix's 35 migrations) and evals. Installed to `~/.claude/skills/`,
 `Wythropus/.claude/skills/` and here. Record: `Wythropus/Company/Context/Uebergabe-Skills-SQL-Trio-2026-09-15.md`.
 Version 0.8.0.
+
+## Addendum 2026-09-15 (8) — `java-pioneer`
+
+Owner-authored `.skill` (English, 7 references, evals shipped loose). Version claims verified
+2026-09-15 (Boot 4.1.1 current, 3.5 OSS ended 2026-06-30, Jackson 3 / Testcontainers 2 / Security 7).
+Extended with `scripts/java_scan.py` (build + config + Java lint against the non-negotiables, JPA-aware,
+tuned on `site/phoenix-api`) and fixtures. Installed 3× as before. Version 0.9.0.
