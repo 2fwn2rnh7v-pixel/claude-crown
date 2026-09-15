@@ -1,0 +1,41 @@
+{
+  "skill_name": "sql-king",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Wir brauchen eine neue Tabelle time_entries (Mitarbeiter, Auftrag, Datum, Stunden). Schreib die Migration für Supabase.",
+      "expected_output": "One migration file in the fixed order: table with uuid PK, FKs with on delete rules, timestamptz, CHECK constraints; indexes on every FK and policy column; updated_at trigger; enable RLS; revoke anon + grant authenticated; four policies with (select auth.uid()); then supabase db reset and the negative test; closes with the 10-point checklist ticked.",
+      "files": [],
+      "expectations": [
+        "Follows the 10-point definition of done and names sql-security and rls-security for grants and policies",
+        "Every FK gets an index in the same migration",
+        "Policies use (select auth.uid()), to authenticated, and update has using AND with check",
+        "Ends with the self-reflection block"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Prüf mal die Datenbank-Schicht in evals/fixtures/bad — da stimmt was mit den Rechten nicht.",
+      "expected_output": "Runs scripts/sql_scan.py first, then judges each lead: notes without RLS (HIGH), service_role key in a use-client file (CRITICAL), .or() filter built from input (HIGH), for-all policy with unwrapped auth.uid(), update policy without with check, security definer without search_path, FKs without index; corrections as SQL/TS before/after.",
+      "files": [
+        "evals/fixtures/bad/"
+      ],
+      "expectations": [
+        "Scanner run before reading file by file",
+        "Distinguishes grant problems (sql-security) from policy problems (rls-security) using the two-layer model",
+        "Names supabase db lint and the negative tests as the remaining proof"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Die Auftragsliste ist langsam geworden, seit wir 200k Zeilen haben. Was tun?",
+      "expected_output": "explain (analyze, buffers) as a real user role first; checks the policy column index, (select auth.uid()) wrapping, to authenticated, keyset pagination instead of offset, select of needed columns plus limit; before/after plan expectations.",
+      "files": [],
+      "expectations": [
+        "Measures in the authenticated role, not as admin",
+        "Follows the optimisation order from rls-performance.md",
+        "Proposes a composite index equality-first, sort-second"
+      ]
+    }
+  ]
+}

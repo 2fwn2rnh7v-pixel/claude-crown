@@ -239,3 +239,12 @@ the owner-authored skills: `api-guard` (0.6.0) plus the two claude.ai account sk
 in English from the SKILL.md contracts (OWASP Top 10:2025 mapping verified 2026-09-14). German
 trigger words and German prompt examples stay as data. Installed in Crown only — `security-review`
 would shadow the built-in `security-review` skill if placed in `~/.claude/skills/`. Version 0.7.0.
+
+## Addendum 2026-09-15 (7) — SQL trio: `sql-king`, `sql-security`, `rls-security`
+
+Owner-authored `.skill` packages from `~/Downloads`, already English and sourced. Claims re-verified
+2026-09-15 (Supabase key timeline, Auth token bucket, default grants, `pgrst.db_pre_request`); two
+details added. Extended `sql-king` with `scripts/sql_scan.py` (stdlib lint of migrations + client
+code, tuned on Phoenix's 35 migrations) and evals. Installed to `~/.claude/skills/`,
+`Wythropus/.claude/skills/` and here. Record: `Wythropus/Company/Context/Uebergabe-Skills-SQL-Trio-2026-09-15.md`.
+Version 0.8.0.
