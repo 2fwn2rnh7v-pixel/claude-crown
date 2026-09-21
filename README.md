@@ -1,7 +1,7 @@
 # Claude Crown
 
 Personal Claude Code skill library. One plugin, one namespace: `claude-crown:<skill>`.
-Ships a router skill and a SessionStart hook. Holds ten domain skills: `java-pioneer`, `scroll-world`, `taste-skill`, `seo-optimizer`, the owner trio `api-guard`, `security-review`, `prompt-verstaendnis`, and the SQL trio `sql-king`, `sql-security`, `rls-security`.
+Ships a router skill and a SessionStart hook. Holds eleven domain skills: `java-pioneer`, `scroll-world`, `taste-skill`, `slop-eater`, `seo-optimizer`, the owner trio `api-guard`, `security-review`, `prompt-verstaendnis`, and the SQL trio `sql-king`, `sql-security`, `rls-security`.
 
 ## Install (local marketplace)
 
@@ -33,6 +33,7 @@ The router (`skills/using-claude-crown/SKILL.md`) needs no edit when skills are 
 |---|---|---|
 | Frontend | `scroll-world` | Scroll-scrubbed "fly through the world" landing page with Higgsfield scenes and a portable scrub engine. |
 | Frontend | `taste-skill` | Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the r |
+| Frontend | `slop-eater` | Builds and audits marketing pages to the measured standard of Tesla.com and Apple.com: hero sizing, variable-swap hover, reveal and sticky scrub, art-directed images, full head block; `scripts/slop_scan.py`. |
 | Backend | `java-pioneer` | Expert playbook for writing production-grade Java (21/25 LTS) backends with Spring Boot 4 and connecting them t |
 | Database | `sql-king` | Foundation skill for everything involving a cloud database (Postgres / Supabase) in a TypeScript app: q |
 | Database | `sql-security` | Securing the database layer of a TypeScript app on Postgres/Supabase — keys, roles, GRANT/REVOKE, ra |
@@ -70,5 +71,6 @@ Add a row per skill you drop in. Source and license per vendored skill: see Cred
 | `security-review`, `prompt-verstaendnis` | owner-authored claude.ai account skills, translated to English 2026-09-14; their `references/` were missing from the export and written new | 2026-09-14 | owner |
 | `sql-king` (+ `scripts/sql_scan.py`, evals), `sql-security`, `rls-security` | owner-authored `.skill` packages, English, verified 2026-09-15 against Supabase/Postgres docs | 2026-09-15 | owner |
 | `java-pioneer` (+ `scripts/java_scan.py`, evals) | owner-authored `.skill` package, English, versions verified 2026-09-15 | 2026-09-15 | owner |
+| `slop-eater` (+ `scripts/slop_scan.py`, evals, 4 references) | owner-directed, written 2026-09-21 from playwright-cli measurements of tesla.com/de_de and apple.com/de (real Chrome channel); baseline/GREEN tested with subagents | 2026-09-21 | owner |
 
 Private use only. Check upstream licenses before any redistribution.

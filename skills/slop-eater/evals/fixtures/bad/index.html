@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nordwind Bikes — E-Bikes, neu gedacht</title>
+<meta name="description" content="Nordwind Bikes entwickelt Elektro-Bikes für die Stadt und darüber hinaus: puristisches Design, kompromisslose Technik, gebaut in Deutschland.">
+<meta name="keywords" content="Nordwind Bikes, E-Bike, Elektrofahrrad, Premium E-Bike, Deutschland">
+<meta name="author" content="Nordwind Bikes GmbH">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a0a0c">
+<meta name="color-scheme" content="dark light">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nordwind Bikes — E-Bikes, neu gedacht">
+<meta property="og:description" content="Puristisches Design. Kompromisslose Technik. Entdecke die neue Generation der Nordwind E-Bikes.">
+<meta property="og:image" content="https://picsum.photos/seed/nordwind-og/1200/630">
+<meta property="og:url" content="https://www.nordwind-bikes.de/">
+<meta property="og:site_name" content="Nordwind Bikes">
+<meta property="og:locale" content="de_DE">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nordwind Bikes — E-Bikes, neu gedacht">
+<meta name="twitter:description" content="Puristisches Design. Kompromisslose Technik. Entdecke die neue Generation der Nordwind E-Bikes.">
+<meta name="twitter:image" content="https://picsum.photos/seed/nordwind-og/1200/630">
+
+<!-- Icons (inline data URIs, no external requests) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0c'/%3E%3Cpath d='M20 55 L45 30 L60 45 L80 25' stroke='%23ffffff' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28' cy='72' r='10' fill='none' stroke='%23ffffff' stroke-width='6'/%3E%3Ccircle cx='72' cy='72' r='10' fill='none' stroke='%23ffffff' stroke-width='6'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0c'/%3E%3Cpath d='M20 55 L45 30 L60 45 L80 25' stroke='%23ffffff' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28' cy='72' r='10' fill='none' stroke='%23ffffff' stroke-width='6'/%3E%3Ccircle cx='72' cy='72' r='10' fill='none' stroke='%23ffffff' stroke-width='6'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://www.nordwind-bikes.de/">
+
+<style>
+  :root{
+    --bg:#0a0a0c;
+    --bg-alt:#f5f5f4;
+    --ink:#f5f5f4;
+    --ink-soft:rgba(245,245,244,.68);
+    --ink-dark:#111113;
+    --ink-dark-soft:rgba(17,17,19,.62);
+    --accent:#e8e6df;
+    --line:rgba(245,245,244,.14);
+    --line-dark:rgba(17,17,19,.12);
+    --nav-h:72px;
+    --ease:cubic-bezier(.19,1,.22,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;
+    height:var(--nav-h);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 32px;
+    z-index:1000;
+    background:transparent;
+    transition:background .4s var(--ease),border-color .4s var(--ease),backdrop-filter .4s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{
+    background:rgba(10,10,12,.78);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    border-bottom:1px solid var(--line);
+  }
+  .nav__logo{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+  }
+  .nav__links{
+    display:flex;gap:40px;
+    list-style:none;
+  }
+  .nav__links a{
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:.02em;
+    opacity:.86;
+    position:relative;
+    padding:6px 0;
+    transition:opacity .25s var(--ease);
+  }
+  .nav__links a::after{
+    content:"";
+    position:absolute;left:0;bottom:0;
+    width:0;height:1px;
+    background:var(--ink);
+    transition:width .3s var(--ease);
+  }
+  .nav__links a:hover{opacity:1;}
+  .nav__links a:hover::after{width:100%;}
+  .nav__cta{
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.04em;
+    padding:9px 18px;
+    border:1px solid rgba(245,245,244,.5);
+    border-radius:999px;
+    transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);
+  }
+  .nav__cta:hover{
+    background:var(--ink);
+    color:var(--ink-dark);
+    border-color:var(--ink);
+    transform:translateY(-1px);
+  }
+  .nav__burger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    width:26px;
+    cursor:pointer;
+    background:none;border:none;
+  }
+  .nav__burger span{
+    height:2px;width:100%;
+    background:var(--ink);
+    transition:transform .3s var(--ease),opacity .3s var(--ease);
+  }
+  .nav__burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav__burger.open span:nth-child(2){opacity:0;}
+  .nav__burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .nav__mobile{
+    position:fixed;inset:var(--nav-h) 0 0 0;
+    background:rgba(10,10,12,.98);
+    backdrop-filter:blur(20px);
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    gap:32px;
+    transform:translateY(-12px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .35s var(--ease),transform .35s var(--ease);
+    z-index:999;
+  }
+  .nav__mobile.open{
+    opacity:1;transform:translateY(0);pointer-events:auto;
+  }
+  .nav__mobile a{font-size:22px;font-weight:500;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    height:100svh;
+    min-height:560px;
+    width:100%;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+  }
+  .hero__media{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    overflow:hidden;
+  }
+  .hero__media img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center 40%;
+    transform:scale(1.08);
+    will-change:transform;
+  }
+  .hero__scrim{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(6,6,8,.55) 0%, rgba(6,6,8,.12) 32%, rgba(6,6,8,.18) 60%, rgba(6,6,8,.86) 100%);
+  }
+  .hero__content{
+    position:relative;z-index:2;
+    width:100%;
+    max-width:1240px;
+    padding:0 32px 96px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .hero__eyebrow{
+    font-size:13px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  .hero__title{
+    font-size:clamp(40px,7vw,84px);
+    line-height:1.02;
+    font-weight:700;
+    letter-spacing:-.02em;
+    margin-bottom:20px;
+  }
+  .hero__subtitle{
+    font-size:clamp(16px,2vw,20px);
+    color:var(--ink-soft);
+    max-width:540px;
+    margin-bottom:36px;
+    line-height:1.5;
+  }
+  .hero__actions{
+    display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:15px 30px;
+    font-size:14px;font-weight:600;letter-spacing:.02em;
+    border-radius:999px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease);
+  }
+  .btn--primary{
+    background:var(--ink);
+    color:var(--ink-dark);
+  }
+  .btn--primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px rgba(0,0,0,.35);
+  }
+  .btn--ghost{
+    background:rgba(245,245,244,.08);
+    color:var(--ink);
+    border-color:rgba(245,245,244,.4);
+  }
+  .btn--ghost:hover{
+    background:rgba(245,245,244,.18);
+    transform:translateY(-2px);
+  }
+  .btn--dark{
+    background:var(--ink-dark);
+    color:var(--ink);
+  }
+  .btn--dark:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px rgba(0,0,0,.25);
+  }
+  .btn--outline-dark{
+    background:transparent;
+    color:var(--ink-dark);
+    border-color:rgba(17,17,19,.4);
+  }
+  .btn--outline-dark:hover{
+    background:rgba(17,17,19,.06);
+    transform:translateY(-2px);
+  }
+  .hero__scroll{
+    position:absolute;
+    bottom:28px;left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    width:22px;height:36px;
+    border:1.5px solid rgba(245,245,244,.6);
+    border-radius:14px;
+    display:flex;justify-content:center;
+    padding-top:6px;
+  }
+  .hero__scroll::before{
+    content:"";
+    width:3px;height:8px;
+    background:var(--ink);
+    border-radius:2px;
+    animation:scrollDot 1.8s ease infinite;
+  }
+  @keyframes scrollDot{
+    0%{transform:translateY(0);opacity:1;}
+    70%{transform:translateY(10px);opacity:0;}
+    100%{opacity:0;}
+  }
+
+  /* ---------- SECTIONS shared ---------- */
+  section{position:relative;}
+  .section{
+    padding:120px 32px;
+  }
+  .section--light{
+    background:var(--bg-alt);
+    color:var(--ink-dark);
+  }
+  .section__head{
+    max-width:640px;
+    margin:0 auto 64px;
+    text-align:center;
+  }
+  .section__eyebrow{
+    font-size:12px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    opacity:.55;
+    margin-bottom:14px;
+  }
+  .section__title{
+    font-size:clamp(28px,4vw,46px);
+    font-weight:700;
+    letter-spacing:-.01em;
+    line-height:1.1;
+    margin-bottom:16px;
+  }
+  .section__desc{
+    font-size:17px;
+    line-height:1.6;
+    opacity:.68;
+  }
+
+  /* reveal-on-scroll */
+  .reveal{
+    opacity:0;
+    transform:translateY(36px);
+    transition:opacity .9s var(--ease), transform .9s var(--ease);
+  }
+  .reveal.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .reveal--delay-1.in-view{transition-delay:.1s;}
+  .reveal--delay-2.in-view{transition-delay:.2s;}
+
+  /* ---------- FEATURE STRIP ---------- */
+  .strip{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:48px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .strip__item{text-align:center;padding:0 12px;}
+  .strip__num{
+    font-size:40px;
+    font-weight:700;
+    letter-spacing:-.02em;
+    margin-bottom:8px;
+  }
+  .strip__label{
+    font-size:13px;
+    letter-spacing:.04em;
+    opacity:.6;
+  }
+
+  /* ---------- PRODUCT CARDS ---------- */
+  .cards{
+    max-width:1240px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .card{
+    position:relative;
+    border-radius:24px;
+    overflow:hidden;
+    background:#151517;
+    isolation:isolate;
+  }
+  .card__media{
+    position:relative;
+    aspect-ratio:4/5;
+    overflow:hidden;
+  }
+  .card__media img{
+    width:100%;height:100%;
+    object-fit:cover;
+    transition:transform .7s var(--ease);
+  }
+  .card:hover .card__media img{
+    transform:scale(1.06);
+  }
+  .card__scrim{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(10,10,12,0) 40%, rgba(10,10,12,.92) 100%);
+  }
+  .card__body{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:32px;
+    z-index:2;
+  }
+  .card__kicker{
+    font-size:12px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+  }
+  .card__title{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .card__desc{
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.55;
+    margin-bottom:20px;
+    max-width:38ch;
+  }
+  .card__meta{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .card__price{
+    font-size:15px;
+    font-weight:600;
+  }
+  .card__price span{
+    display:block;
+    font-size:12px;
+    font-weight:400;
+    opacity:.55;
+  }
+
+  /* ---------- GALLERY / IMAGE BAND ---------- */
+  .band{
+    position:relative;
+    height:78vh;
+    min-height:440px;
+    overflow:hidden;
+  }
+  .band img{
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+  .band__caption{
+    position:absolute;
+    left:0;right:0;bottom:0;
+    padding:56px 32px;
+    background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.6));
+    text-align:center;
+  }
+  .band__caption h3{
+    font-size:clamp(22px,3vw,34px);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .band__caption p{
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer{
+    background:var(--ink-dark);
+    color:var(--ink);
+    padding:80px 32px 32px;
+  }
+  .footer__top{
+    max-width:1240px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:48px;
+    padding-bottom:56px;
+    border-bottom:1px solid rgba(245,245,244,.12);
+  }
+  .footer__brand{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .footer__tag{
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    max-width:32ch;
+  }
+  .footer__heading{
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    opacity:.5;
+    margin-bottom:18px;
+  }
+  .footer__list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .footer__list a{
+    font-size:14px;
+    color:var(--ink-soft);
+    transition:color .25s var(--ease);
+  }
+  .footer__list a:hover{
+    color:var(--ink);
+  }
+  .footer__bottom{
+    max-width:1240px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    padding-top:28px;
+    font-size:12px;
+    color:rgba(245,245,244,.45);
+  }
+  .footer__social{
+    display:flex;gap:18px;
+  }
+  .footer__social a{
+    width:36px;height:36px;
+    border:1px solid rgba(245,245,244,.2);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    transition:border-color .25s var(--ease),background .25s var(--ease),transform .25s var(--ease);
+  }
+  .footer__social a:hover{
+    border-color:rgba(245,245,244,.6);
+    background:rgba(245,245,244,.08);
+    transform:translateY(-2px);
+  }
+  .footer__social svg{width:15px;height:15px;fill:var(--ink);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1024px){
+    .cards{grid-template-columns:1fr;}
+    .footer__top{grid-template-columns:1.2fr 1fr 1fr;}
+  }
+  @media (max-width:900px){
+    .strip{grid-template-columns:1fr;gap:36px;}
+  }
+  @media (max-width:768px){
+    .nav__links{display:none;}
+    .nav__cta{display:none;}
+    .nav__burger{display:flex;}
+    .section{padding:88px 20px;}
+    .hero__content{padding:0 20px 72px;}
+    .footer{padding:64px 20px 24px;}
+    .footer__top{grid-template-columns:1fr 1fr;gap:36px;}
+    .band{height:60vh;}
+  }
+  @media (max-width:480px){
+    .footer__top{grid-template-columns:1fr;}
+    .card__title{font-size:24px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .hero__media img{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">Nordwind</div>
+    <ul class="nav__links">
+      <li><a href="#modelle">Modelle</a></li>
+      <li><a href="#technologie">Technologie</a></li>
+      <li><a href="#haendler">Händler</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#modelle" class="nav__cta">Probefahrt buchen</a>
+    <button class="nav__burger" id="burger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="#modelle">Modelle</a>
+    <a href="#technologie">Technologie</a>
+    <a href="#haendler">Händler</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__media">
+      <img id="heroImg" src="https://picsum.photos/seed/nordwind-hero/1920/1200" alt="Nordwind E-Bike bei Sonnenaufgang auf einer Küstenstraße">
+    </div>
+    <div class="hero__scrim"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Nordwind Bikes</p>
+      <h1 class="hero__title">Fahr weiter,<br>denk weniger.</h1>
+      <p class="hero__subtitle">Elektroantrieb, der sich anfühlt wie Rückenwind. Entwickelt für die Stadt, gebaut für die Strecke danach.</p>
+      <div class="hero__actions">
+        <a href="#modelle" class="btn btn--primary">Modelle entdecken</a>
+        <a href="#kontakt" class="btn btn--ghost">Probefahrt vereinbaren</a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true"></div>
+  </header>
+
+  <!-- FEATURE STRIP -->
+  <section class="section" aria-label="Kennzahlen">
+    <div class="strip">
+      <div class="strip__item reveal">
+        <div class="strip__num">120&nbsp;km</div>
+        <div class="strip__label">Reichweite pro Ladung</div>
+      </div>
+      <div class="strip__item reveal reveal--delay-1">
+        <div class="strip__num">3,8&nbsp;kg</div>
+        <div class="strip__label">Leichtester Rahmen der Klasse</div>
+      </div>
+      <div class="strip__item reveal reveal--delay-2">
+        <div class="strip__num">25&nbsp;km/h</div>
+        <div class="strip__label">Unterstützung bis Zulassungsgrenze</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE BAND -->
+  <section class="band">
+    <img src="https://picsum.photos/seed/nordwind-band/1920/1080" alt="Nahaufnahme des Nordwind Antriebssystems am Tretlager" loading="lazy">
+    <div class="band__caption reveal">
+      <h3>Ein Antrieb, kaum zu hören.</h3>
+      <p>Der Nordwind Core Motor — 65&nbsp;Nm, geräuscharm, nahtlos integriert.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCT CARDS -->
+  <section class="section" id="modelle">
+    <div class="section__head reveal">
+      <p class="section__eyebrow">Die Modelle</p>
+      <h2 class="section__title">Zwei Wege, weiterzukommen.</h2>
+      <p class="section__desc">Für den täglichen Weg in die Stadt oder die lange Tour ins Umland — beide gebaut auf derselben kompromisslosen Plattform.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card__media">
+          <img src="https://picsum.photos/seed/nordwind-urban/900/1125" alt="Nordwind Urban E-Bike in der Stadt" loading="lazy">
+          <div class="card__scrim"></div>
+        </div>
+        <div class="card__body">
+          <p class="card__kicker">Für die Stadt</p>
+          <h3 class="card__title">Nordwind Urban</h3>
+          <p class="card__desc">Wendig, leicht, aufgeräumt. Der Begleiter für Pendelstrecken und spontane Abstecher.</p>
+          <div class="card__meta">
+            <div class="card__price">ab 3.490&nbsp;€<span>inkl. Akku &amp; Garantie</span></div>
+            <a href="#kontakt" class="btn btn--ghost">Konfigurieren</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal reveal--delay-1">
+        <div class="card__media">
+          <img src="https://picsum.photos/seed/nordwind-trail/900/1125" alt="Nordwind Trail E-Bike auf einer Landstraße" loading="lazy">
+          <div class="card__scrim"></div>
+        </div>
+        <div class="card__body">
+          <p class="card__kicker">Für die Strecke</p>
+          <h3 class="card__title">Nordwind Trail</h3>
+          <p class="card__desc">Mehr Reichweite, mehr Federweg, mehr Ausdauer. Für Touren, die erst nach der Stadtgrenze beginnen.</p>
+          <div class="card__meta">
+            <div class="card__price">ab 4.290&nbsp;€<span>inkl. Akku &amp; Garantie</span></div>
+            <a href="#kontakt" class="btn btn--ghost">Konfigurieren</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY / LIGHT SECTION -->
+  <section class="section section--light" id="technologie">
+    <div class="section__head reveal">
+      <p class="section__eyebrow">Technologie</p>
+      <h2 class="section__title">Weniger Technik im Weg, mehr Fahrt im Fokus.</h2>
+      <p class="section__desc">Rahmen, Akku und Antrieb sind eine Einheit — kein Kabel sichtbar, kein Bauteil zu viel.</p>
+    </div>
+    <div class="strip">
+      <div class="strip__item reveal">
+        <div class="strip__num">500&nbsp;Wh</div>
+        <div class="strip__label">Im Rahmen integrierter Akku</div>
+      </div>
+      <div class="strip__item reveal reveal--delay-1">
+        <div class="strip__num">2,5&nbsp;h</div>
+        <div class="strip__label">Ladezeit auf 80&nbsp;%</div>
+      </div>
+      <div class="strip__item reveal reveal--delay-2">
+        <div class="strip__num">IP67</div>
+        <div class="strip__label">Wetterfest bei jedem Einsatz</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE BAND 2 -->
+  <section class="band">
+    <img src="https://picsum.photos/seed/nordwind-band2/1920/1080" alt="Nordwind E-Bike von hinten bei Abenddämmerung" loading="lazy">
+    <div class="band__caption reveal">
+      <h3>Entworfen in Hamburg.</h3>
+      <p>Jeder Rahmen wird geprüft, bevor er unser Lager verlässt.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section class="section" id="kontakt">
+    <div class="section__head reveal">
+      <p class="section__eyebrow">Kontakt</p>
+      <h2 class="section__title">Bereit für die erste Fahrt?</h2>
+      <p class="section__desc">Vereinbare eine unverbindliche Probefahrt in einem unserer Showrooms oder lass dir ein Modell nach Hause bringen.</p>
+      <div class="hero__actions" style="margin-top:32px;">
+        <a href="#" class="btn btn--dark">Probefahrt buchen</a>
+        <a href="#haendler" class="btn btn--outline-dark">Händler finden</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="haendler">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">Nordwind</div>
+        <p class="footer__tag">Elektro-Bikes aus Hamburg. Entwickelt für Menschen, die lieber fahren als warten.</p>
+      </div>
+      <div>
+        <p class="footer__heading">Modelle</p>
+        <ul class="footer__list">
+          <li><a href="#modelle">Nordwind Urban</a></li>
+          <li><a href="#modelle">Nordwind Trail</a></li>
+          <li><a href="#technologie">Zubehör</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__heading">Unternehmen</p>
+        <ul class="footer__list">
+          <li><a href="#">Über uns</a></li>
+          <li><a href="#">Karriere</a></li>
+          <li><a href="#">Presse</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__heading">Support</p>
+        <ul class="footer__list">
+          <li><a href="#haendler">Händlersuche</a></li>
+          <li><a href="#">Garantie</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Nordwind Bikes GmbH. Alle Rechte vorbehalten.</span>
+      <div class="footer__social" aria-label="Social Media">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.06 1.1.05 1.8.22 2.4.46.7.27 1.2.63 1.7 1.13.5.5.86 1 1.13 1.7.24.6.4 1.3.46 2.4.06 1.1.06 1.4.06 4.1s0 3-.06 4.1c-.05 1.1-.22 1.8-.46 2.4a4.6 4.6 0 0 1-1.13 1.7 4.6 4.6 0 0 1-1.7 1.13c-.6.24-1.3.4-2.4.46-1.1.06-1.4.06-4.1.06s-3 0-4.1-.06c-1.1-.05-1.8-.22-2.4-.46a4.6 4.6 0 0 1-1.7-1.13 4.6 4.6 0 0 1-1.13-1.7c-.24-.6-.4-1.3-.46-2.4C2 15 2 14.7 2 12s0-3 .06-4.1c.05-1.1.22-1.8.46-2.4.27-.7.63-1.2 1.13-1.7A4.6 4.6 0 0 1 5.35 2.6c.6-.24 1.3-.4 2.4-.46C8.85 2 9.15 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-.98 1.83-2 3.76-2 4.02 0 4.76 2.55 4.76 5.86V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.44-2.16 2.96V21h-4V9z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.4-.44-5a2.9 2.9 0 0 0-2-2C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.56.5a2.9 2.9 0 0 0-2 2C1 8.6 1 12 1 12s0 3.4.44 5a2.9 2.9 0 0 0 2 2c1.66.5 8.56.5 8.56.5s6.9 0 8.56-.5a2.9 2.9 0 0 0 2-2C23 15.4 23 12 23 12zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // --- NAV: solid background after scrolling past hero threshold ---
+  var nav = document.getElementById('nav');
+  function onScroll(){
+    if (window.scrollY > 40) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // --- Mobile menu toggle ---
+  var burger = document.getElementById('burger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // --- Scroll reveal via IntersectionObserver ---
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    // Fallback: no IO support, just show everything
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  // --- Subtle hero parallax on scroll ---
+  var heroImg = document.getElementById('heroImg');
+  var ticking = false;
+  function updateParallax(){
+    var y = window.scrollY;
+    var translate = Math.min(y * 0.18, 120);
+    var scale = 1.08 + Math.min(y * 0.00015, 0.05);
+    heroImg.style.transform = 'translateY(' + translate + 'px) scale(' + scale + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+})();
+</script>
+</body>
+</html>

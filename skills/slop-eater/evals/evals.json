@@ -1,0 +1,51 @@
+{
+  "skill_name": "slop-eater",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Prüf mal die Landingpage in evals/fixtures/bad/index.html. Sieht das nach KI aus? Warum wirkt das billig?",
+      "expected_output": "Mode A audit: runs scripts/slop_scan.py first, then findings in the Finding format across the six levels with severity, file:line, the measured Tesla/Apple value it violates, and before/after code; closes with the summary block and top-3 priorities.",
+      "files": ["evals/fixtures/bad/index.html"],
+      "expectations": [
+        "Runs scripts/slop_scan.py on the fixture before judging and reports its counts (1 CRITICAL, 21 HIGH at time of writing)",
+        "CRITICAL: .hero uses height:100svh; correction sizes the hero by the phone crop's aspect-ratio plus a fixed 660px from 600px up, citing Tesla's measured 660px / image aspect",
+        "HIGH: button and card hovers use translateY, box-shadow and scale; correction replaces them with a single --bg variable swap under @media (hover: hover), citing #3e6ae1 -> #3457b1",
+        "HIGH: two window.addEventListener('scroll') calls (nav state, hero parallax); correction uses IntersectionObserver for the nav/CTA state and removes the parallax (Tesla ships tcl-parallax-effect--off)",
+        "HIGH: every <img> is one picsum file without srcset/<picture> and without width/height; correction shows an art-directed <picture> with 3 crops and reserved size",
+        "HIGH: head lacks manifest, og:image:alt, theme-color per scheme; LOW: meta keywords/author/robots are dead lines to delete",
+        "MEDIUM: em-dashes in title, og:title, twitter:title; MEDIUM: four breakpoints (480/768/900/1024) -> three (600/900/1200)",
+        "Summary block with Overall rating CRITICAL and three prioritised actions; positive note on the existing reduced-motion block and IntersectionObserver reveal"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Bau mir eine Landingpage für eine deutsche E-Bike-Marke, so wie Tesla oder Apple: Hero, zwei Produktkarten, Footer, mobil und Desktop, mit Scroll-Animation und Hover.",
+      "expected_output": "Mode B build: one-line design read, then HTML/CSS/JS built from references/patterns.md and references/head-meta.md; hero sized by image aspect / fixed px, art-directed <picture>, variable-swap hover under (hover: hover), reveal on enter (30px/500ms) with reduced-motion path, three breakpoints, complete <head>; scanner reports 0 CRITICAL and 0 HIGH; compact --- Slop notes --- block at the end.",
+      "files": [],
+      "expectations": [
+        "Declares the design read (page kind, audience, Tesla-flat or Apple-pill, breakpoints) before code",
+        "Hero has no 100vh/100svh; height comes from aspect-ratio of the phone crop and a fixed px value from 600px up",
+        "Buttons: 40px, 4px radius (or 980px pill), hover changes background colour only, :focus-visible ring, :active one step darker, labels of at most three words",
+        "Reveal uses animation-timeline: view() behind @supports with an IntersectionObserver fallback; no page-level scroll listener; prefers-reduced-motion block present",
+        "Every photo is a <picture> with at least three <source media> crops and a sized <img> with fetchpriority=high on the hero and loading=lazy below",
+        "Head contains viewport-fit=cover, canonical, og:image + og:image:alt, twitter:card, manifest, theme-color x2, apple-touch-icon, SVG icon, msapplication-TileColor, LCP preload; no keywords/author/X-UA-Compatible",
+        "Exactly three width breakpoints in the CSS; no em/en dashes in visible text; no three-equal-card grid",
+        "Runs scripts/slop_scan.py on the result and reports 0 CRITICAL / 0 HIGH; ends with the --- Slop notes --- block"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Ich baue gerade den Hero unserer Next.js-Seite um. Hier ist die Komponente: <section className=\"min-h-screen\"> mit einem <motion.div whileHover={{ scale: 1.05 }}> um den CTA und einem useEffect, das window.addEventListener('scroll', ...) für Parallax setzt. Mach weiter, ich brauche noch die zweite CTA.",
+      "expected_output": "Mode B accompanying: builds the second CTA as asked, and appends the compact block flagging min-h-screen (CRITICAL), the whileHover scale (HIGH) and the scroll listener parallax (HIGH) with concrete React corrections from patterns.md section 12 (client leaf, useInView hook, no useState for progress, aspect-ratio hero).",
+      "files": [],
+      "expectations": [
+        "Delivers the second CTA without stopping the user's flow",
+        "Flags min-h-screen as CRITICAL with the aspect-ratio / fixed-height replacement",
+        "Flags whileHover scale as HIGH and replaces it with a background-colour change (CSS variable or Tailwind hover:bg-*)",
+        "Flags the useEffect scroll listener as HIGH; proposes IntersectionObserver via the useInView hook or a CSS animation-timeline, with cleanup in the effect return",
+        "Mentions 'use client' placement and no window access at module scope",
+        "Ends with the --- Slop notes --- block including the one-line design read"
+      ]
+    }
+  ]
+}

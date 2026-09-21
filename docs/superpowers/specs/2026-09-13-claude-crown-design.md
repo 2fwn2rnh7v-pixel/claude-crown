@@ -255,3 +255,17 @@ Owner-authored `.skill` (English, 7 references, evals shipped loose). Version cl
 2026-09-15 (Boot 4.1.1 current, 3.5 OSS ended 2026-06-30, Jackson 3 / Testcontainers 2 / Security 7).
 Extended with `scripts/java_scan.py` (build + config + Java lint against the non-negotiables, JPA-aware,
 tuned on `site/phoenix-api`) and fixtures. Installed 3× as before. Version 0.9.0.
+
+## Addendum 2026-09-21 (9) — `slop-eater`
+
+Owner-directed skill, written from measurements rather than memory: tesla.com/de_de and apple.com/de
+captured 2026-09-21 with playwright-cli (real Chrome channel, headed; headless Chromium gets an Akamai
+403) at 1440x900 and 390x844: computed styles of nav, hero, buttons at rest and `:hover`, CSSOM
+hover/focus rules, breakpoints, tokens, section heights, `<picture>` sources, full `<head>`. Findings
+that overturn the usual assumptions: hero is 660px / image aspect, not 100vh; homepage container is
+`tcl-homepage-no-scroll-snapping`; parallax is off; hover is one CSS-variable swap. Four references
+(`tesla-measured`, `apple-measured`, `patterns` with React/Tailwind adapters, `head-meta`),
+`scripts/slop_scan.py` (stdlib; tuned on `site/app/src`: 8 HIGH leads, 0 false CRITICAL), three evals.
+TDD per `writing-skills`: baseline subagent without the skill produced 1 CRITICAL / 21 HIGH (now
+`evals/fixtures/bad`); the same brief with the skill loaded is `evals/fixtures/good`. Installed 3x as
+before. Version 0.10.0.
